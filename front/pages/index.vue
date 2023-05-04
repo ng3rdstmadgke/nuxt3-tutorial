@@ -1,19 +1,13 @@
 <template>
   <div>
-    <header>Nuxt3サンプルアプリケーション</header>
-    <div class="container">
-      <p>新着記事</p>
-      <ul>
-        <li v-for="article in articles" :key="article.id">
-          <NuxtLink :to="{path: '/details', query: {id: article.id}}">
-            {{ article.title }}
-          </NuxtLink>
-        </li>
-      </ul>
-    </div>
-    <footer>
-      2022
-    </footer>
+    <p>新着記事</p>
+    <ul>
+      <li v-for="article in articles" :key="article.id">
+        <NuxtLink :to="{path: '/details', query: {id: article.id}}">
+          {{ article.title }}
+        </NuxtLink>
+      </li>
+    </ul>
   </div>
 </template>
 
