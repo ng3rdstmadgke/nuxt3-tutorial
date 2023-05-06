@@ -1,15 +1,11 @@
 <template>
   <div>
-    <header>サンプルアプリ</header>
-    <div class="container">
-      <article v-if="article">
-        <p>タイトル: {{ article.title }}</p>
-        <hr>
-        <div style="width: 500px">{{ article.content }}</div>
-      </article>
-      <nuxtlink to="/">戻る</nuxtlink>
-    </div>
-    <footer>2022</footer>
+    <article v-if="article">
+      <p>タイトル: {{ article.title }}</p>
+      <hr>
+      <div style="width: 500px">{{ article.content }}</div>
+    </article>
+    <NuxtLink to="/">戻る</NuxtLink>
   </div>
 </template>
 
@@ -44,19 +40,3 @@ const article = ref<Article | null>(null)
 // +id は文字列を数値に変換する
 article.value = articles.find(article => +id === article.id) ?? null
 </script>
-
-
-<style scoped>
-header {
-  border-bottom-style: solid;
-  padding: 1rem;
-}
-footer {
-  margin-top: 2rem;
-  background-color: #8080ee;
-  padding: 1rem;
-}
-.container {
-  margin: 2rem;
-}
-</style>
