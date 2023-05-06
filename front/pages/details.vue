@@ -1,15 +1,50 @@
 <template>
   <div>
-    <article v-if="article">
-      <p>タイトル: {{ article.title }}</p>
-      <hr>
-      <div style="width: 500px">
-        {{ article.content }}
-      </div>
-    </article>
-    <NuxtLink to="/">戻る</NuxtLink>
+    <header>サンプルアプリ</header>
+    <div class="container">
+      <article v-if="article">
+        <p>タイトル: {{ article.title }}</p>
+        <hr>
+        <div style="width: 500px">{{ article.content }}</div>
+      </article>
+      <nuxtlink to="/">戻る</nuxtlink>
+    </div>
+    <footer>2022</footer>
   </div>
 </template>
+
+<script setup lang="ts">
+// 明示的なインポートは不要だが、IDEの補完を効かせるために記述している
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+
+interface Article {
+  id: number
+  title: string
+  content: string
+}
+
+// https://router.vuejs.org/guide/advanced/composition-api.html
+const route = useRoute();
+const { id } = route.query;
+const articles = [
+  {
+    id: 1,
+    title: "Nuxt3入門",
+    content: "Nuxt3の入門記事です。",
+  },
+  {
+    id: 2,
+    title: "Jest再入門",
+    content: "Jestの再入門記事です。",
+  },
+]
+
+const article = ref<Article | null>(null)
+// +id は文字列を数値に変換する
+article.value = articles.find(article => +id === article.id) ?? null
+</script>
+
 
 <style scoped>
 header {
@@ -25,23 +60,3 @@ footer {
   margin: 2rem;
 }
 </style>
-
-<script setup lang="ts">
-const route = useRoute();
-const {id} = route.query;
-const articles = [
-  {
-    id: 1,
-    title: "Nuxt3入門",
-    content: "Nuxt3が公式リリースされました。Nuxt3ではVue3対応だけでなく、NitroやVite等様々な改善が施されています。"
-  },
-  {
-    id: 2,
-    title: "Jest再入門",
-    content: "今回はJestのモックについて整理していきます。Jestはビルトインでマッチャーが提供され、これ単体で多くのユースケースをサポートします。"
-  }
-];
-var article = ref<{id: number, title: string, content: string}>(null);
-article.value = articles.find(article => +id == article.id)
-
-</script>
