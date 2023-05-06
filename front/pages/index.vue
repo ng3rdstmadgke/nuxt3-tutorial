@@ -11,21 +11,7 @@
 
 <script setup lang="ts">
 // 明示的なインポートは不要だが、IDEの補完を効かせるために記述している
-import { ref } from 'vue'
-
-interface Article {
-  id: number
-  title: string
-}
-const articles = ref<Article[]>([])
-articles.value = [
-  {
-    id: 1,
-    title: "Nuxt3入門",
-  },
-  {
-    id: 2,
-    title: "Jest再入門",
-  },
-]
+import { useArticles } from '~/composables/useArticles'
+const { fetchArticles, articles } = useArticles()
+fetchArticles()
 </script>

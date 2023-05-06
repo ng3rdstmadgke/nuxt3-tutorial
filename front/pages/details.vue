@@ -13,30 +13,12 @@
 // 明示的なインポートは不要だが、IDEの補完を効かせるために記述している
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
+import { useArticles } from '~/composables/useArticles'
 
-interface Article {
-  id: number
-  title: string
-  content: string
-}
 
 // https://router.vuejs.org/guide/advanced/composition-api.html
 const route = useRoute();
 const { id } = route.query;
-const articles = [
-  {
-    id: 1,
-    title: "Nuxt3入門",
-    content: "Nuxt3の入門記事です。",
-  },
-  {
-    id: 2,
-    title: "Jest再入門",
-    content: "Jestの再入門記事です。",
-  },
-]
-
-const article = ref<Article | null>(null)
-// +id は文字列を数値に変換する
-article.value = articles.find(article => +id === article.id) ?? null
+const { article, fetchArticle } = useArticles()
+fetchArticle(+id)
 </script>
