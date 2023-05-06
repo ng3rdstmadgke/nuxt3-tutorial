@@ -6,6 +6,7 @@
       <div style="width: 500px">{{ article.content }}</div>
     </article>
     <NuxtLink to="/">戻る</NuxtLink>
+    <Advertisement />
   </div>
 </template>
 

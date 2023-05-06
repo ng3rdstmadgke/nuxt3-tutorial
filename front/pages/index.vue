@@ -6,7 +6,9 @@
         <NuxtLink :to="{path: '/details', query: {id: article.id}}">{{ article.title }}</NuxtLink>
       </li>
     </ul>
+    <Advertisement />
   </div>
+
 </template>
 
 <script setup lang="ts">
