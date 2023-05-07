@@ -12,13 +12,22 @@
 
 <script setup lang="ts">
 // 明示的なインポートは不要だが、IDEの補完を効かせるために記述している
-import { ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { useArticles } from '~/composables/useArticles'
-
 
 // https://router.vuejs.org/guide/advanced/composition-api.html
 const route = useRoute();
 const { id } = route.query;
+// useFetchを使う場合
 const { data: article } = useFetch(`/api/blogs/${id}`)
+
+// useAsyncDataを使う場合
+// const { data: article, pending, error, refresh } = await useAsyncData(
+//   "getArticle",
+//   () => { return $fetch(`/api/blogs/${id}`) }
+// )
+
+// $fetchを使う場合
+// const article = await $fetch(`/api/blogs/${id}`).then((data) => {
+//   return ref(data);
+// });
 </script>

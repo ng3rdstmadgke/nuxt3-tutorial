@@ -12,16 +12,31 @@
 </template>
 
 <script setup lang="ts">
+// useFetchを使う場合
 const { data: articles, pending, error, refresh } = await useFetch("/api/blogs")
-/**
- * useFetch/useLazyFetchの戻り値の型定義
- * 
- * type AsyncData<DataT> = {
- *   data: Ref<DataT> // <- レスポンスボディ
- *   pending: Ref<boolean>
- *   refresh: () => Promise<void>
- *   execute: () => Promise<void>
- *   error: Ref<Error | boolean>
- * }
- */
+
+// useAsyncDataを使う場合
+// const { data: articles, pending, error, refresh } = await useAsyncData(
+//   "getArticles",
+//   () => { return $fetch("/api/blogs") }
+// )
+
+// $fetchを使う場合
+// const articles = await $fetch(`/api/blogs/`).then((data) => {
+//   return ref(data);
+// });
+
+// 複数のAPIに非同期でアクセスする場合
+// const articles = ref([])
+// const {data1, data2} = await Promise.all([
+//   $fetch(`/api/blogs/`, {method: "GET"}),
+//   $fetch(`/api/blogs/1`, {method: "GET"}),
+// ]).then(
+//   ([data1, data2]) => {
+//     return { data1, data2 }
+//   }
+// )
+// articles.value = data1
+
+
 </script>
