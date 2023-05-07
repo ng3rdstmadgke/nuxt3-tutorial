@@ -4,4 +4,6 @@ PROJECT_ROOT=$(cd $(dirname $0)/..; pwd)
 
 cd ${PROJECT_ROOT}/front
 
-pnpm dev -o
+export BLOG_DB=${PROJECT_ROOT}/front/db.json
+pnpm build
+node ${PROJECT_ROOT}/front/.output/server/index.mjs

@@ -20,6 +20,5 @@ import { useArticles } from '~/composables/useArticles'
 // https://router.vuejs.org/guide/advanced/composition-api.html
 const route = useRoute();
 const { id } = route.query;
-const { article, fetchArticle } = useArticles()
-fetchArticle(+id)
+const { data: article } = useFetch(`/api/blogs/${id}`)
 </script>

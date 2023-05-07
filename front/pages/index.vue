@@ -12,8 +12,16 @@
 </template>
 
 <script setup lang="ts">
-// 明示的なインポートは不要だが、IDEの補完を効かせるために記述している
-import { useArticles } from '~/composables/useArticles'
-const { fetchArticles, articles } = useArticles()
-fetchArticles()
+const { data: articles, pending, error, refresh } = await useFetch("/api/blogs")
+/**
+ * useFetch/useLazyFetchの戻り値の型定義
+ * 
+ * type AsyncData<DataT> = {
+ *   data: Ref<DataT> // <- レスポンスボディ
+ *   pending: Ref<boolean>
+ *   refresh: () => Promise<void>
+ *   execute: () => Promise<void>
+ *   error: Ref<Error | boolean>
+ * }
+ */
 </script>
