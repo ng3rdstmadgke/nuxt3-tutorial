@@ -16,7 +16,7 @@ import { useRoute } from 'vue-router'
 
 // https://router.vuejs.org/guide/advanced/composition-api.html
 const route = useRoute();
-const { id } = route.query;
+const { id } = route.params;
 // useFetchを使う場合
 const { data: article } = useFetch(`/api/blogs/${id}`)
 

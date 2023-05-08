@@ -3,7 +3,10 @@
     <p>新着記事</p>
     <ul>
       <li v-for="article in articles" :key="article.id">
+        <!--
         <NuxtLink :to="{path: '/details', query: {id: article.id}}">{{ article.title }}</NuxtLink>
+        -->
+        <NuxtLink :to="`/details/${article.id}`">{{ article.title }}</NuxtLink>
       </li>
     </ul>
     <Advertisement />
@@ -37,6 +40,4 @@ const { data: articles, pending, error, refresh } = await useFetch("/api/blogs")
 //   }
 // )
 // articles.value = data1
-
-
 </script>
