@@ -9,6 +9,11 @@ export default defineNuxtConfig({
     db: {
       user: "test",
       password: "passw0rd"
+    },
+    test: {
+      username: "username",
+      userName: "userName",
+      user_name: "user_name",
     }
   }
 })
