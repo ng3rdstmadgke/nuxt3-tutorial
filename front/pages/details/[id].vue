@@ -6,6 +6,9 @@
       <div style="width: 500px">{{ article.content }}</div>
     </article>
     <NuxtLink to="/">戻る</NuxtLink>
+    <div>
+      <button @click="navigate">navigateTo</button>
+    </div>
     <Advertisement />
   </div>
 </template>
@@ -30,4 +33,11 @@ const { data: article } = useFetch(`/api/blogs/${id}`)
 // const article = await $fetch(`/api/blogs/${id}`).then((data) => {
 //   return ref(data);
 // });
+
+const navigate = () => {
+  return navigateTo({
+    path: "/",
+    query: { hoge: "piyo" }
+  })
+}
 </script>
