@@ -1,7 +1,9 @@
 
 <template>
   <div>
-    <header>サンプルアプリ</header>
+    <header>
+      <NuxtLink to="/">サンプルアプリ</NuxtLink>
+    </header>
     <div class="container">
       <slot />
     </div>

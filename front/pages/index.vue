@@ -17,6 +17,12 @@
       <li>
         <NuxtLink to="/on_error_captured">onErrorCaptured</NuxtLink>
       </li>
+      <li>
+        <NuxtLink to="/nuxt_error_boundary">NuxtErrorBoundary</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/api_access_error">APIアクセスエラーハンドリング</NuxtLink>
+      </li>
     </ul>
     <p>新着記事</p>
     <ul>
