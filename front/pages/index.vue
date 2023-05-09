@@ -26,6 +26,9 @@
       <li>
         <NuxtLink to="/custom_error_page">カスタムエラーページ</NuxtLink>
       </li>
+      <li>
+        <NuxtLink to="/multi_fetch">複数APIに一度にアクセス</NuxtLink>
+      </li>
     </ul>
     <p>新着記事</p>
     <ul>
