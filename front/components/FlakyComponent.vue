@@ -14,5 +14,5 @@ throw createError('FlakyComponentでエラーが発生しました！');
 -->
 
 <template>
-  <div>サブコンポーネント</div>
+  <div>Flakyサブコンポーネント</div>
 </template>

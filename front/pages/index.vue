@@ -23,6 +23,9 @@
       <li>
         <NuxtLink to="/api_access_error">APIアクセスエラーハンドリング</NuxtLink>
       </li>
+      <li>
+        <NuxtLink to="/custom_error_page">カスタムエラーページ</NuxtLink>
+      </li>
     </ul>
     <p>新着記事</p>
     <ul>
