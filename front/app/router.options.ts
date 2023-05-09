@@ -5,7 +5,7 @@ export default <RouterOptions> {
   routes(_routes: VueRouterOption["routes"]) {
     return [..._routes, {
       path: "/hoge",
-      component: () => import("~/pages/index.vue")
+      component: () => import("~/pages/custom_routing.vue")
     }]
   }
 }

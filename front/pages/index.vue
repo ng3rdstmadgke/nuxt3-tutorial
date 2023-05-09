@@ -1,5 +1,23 @@
 <template>
   <div>
+    <p>リンク</p>
+    <ul>
+      <li>
+        <NuxtLink to="/fugafuga">Catch-all Route</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/hoge">Custom Routing</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/runtimeconfig">Runtime Config</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/appconfig">App Config</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/on_error_captured">onErrorCaptured</NuxtLink>
+      </li>
+    </ul>
     <p>新着記事</p>
     <ul>
       <li v-for="article in articles" :key="article.id">
