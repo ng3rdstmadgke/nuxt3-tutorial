@@ -15,6 +15,6 @@ onErrorCaptured((err: any) => {
   console.log("message: ", message.value)
 
   // falseを返却すると、エラーが伝搬しなくなる
-  return false
+  // return false
 })
 </script>
